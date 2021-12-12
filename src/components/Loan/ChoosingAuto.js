@@ -1,5 +1,6 @@
 import CarBrand from "./CarBrand";
 import CarModels from "./CarModel";
+import CarCard from "./CarCard";
 
 export default function ChoosingAuto() {
   return (
@@ -9,6 +10,7 @@ export default function ChoosingAuto() {
         <CarBrand />
         <CarModels />
       </div>
+      <CarCard />
     </div>
   );
 }
