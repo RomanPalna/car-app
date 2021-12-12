@@ -29,7 +29,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function CarModels() {
   const classes = useStyles();
-  const [cars, setCars] = React.useState("EUR");
+  const [cars, setCars] = React.useState("M2");
 
   const handleChange = (event) => {
     setCars(event.target.value);
