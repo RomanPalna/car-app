@@ -5,10 +5,14 @@ import "./index.scss";
 import App from "./App";
 
 ReactDOM.render(
-  <React.StrictMode>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
-  </React.StrictMode>,
+  <BrowserRouter>
+    <App />
+  </BrowserRouter>,
+
   document.getElementById("root")
 );
+// eslint-disable-next-line no-lone-blocks
+{
+  /* <React.StrictMode>
+</React.StrictMode>, */
+}
