@@ -1,0 +1,44 @@
+body {
+  display: block;
+  margin: 0 auto;
+}
+
+.header {
+  max-width: 1200px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 27px auto;
+}
+
+#header__form {
+  display: flex;
+  align-items: center;
+}
+
+.location__icon {
+  width: 15px;
+  height: max-content;
+  margin-right: 10px;
+}
+
+.header__phone {
+  display: flex;
+  align-items: center;
+}
+
+.phone__icon {
+  width: 16px;
+  height: 16px;
+  margin-right: 10px;
+}
+
+.phone__link {
+  font-family: PT Root UI;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 130%;
+  text-decoration: none;
+  color: #000000;
+}

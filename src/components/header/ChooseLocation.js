@@ -2,6 +2,7 @@ import { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
 import MenuItem from "@material-ui/core/MenuItem";
+import iconLocation from "../../images/location.png";
 
 const cities = [
   {
@@ -20,9 +21,9 @@ const cities = [
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    "& .MuiTextField-root": {
+    "& .MuiTextField-root .location-form": {
       margin: theme.spacing(1),
-      width: "25ch",
+      width: "125",
     },
   },
 }));
@@ -36,7 +37,13 @@ export default function ChooseLocation() {
   };
 
   return (
-    <form className={classes.root} noValidate autoComplete="off">
+    <form
+      id="header__form"
+      className={classes.root}
+      noValidate
+      autoComplete="off"
+    >
+      <img alt="location icon" className="location__icon" src={iconLocation} />
       <div>
         <TextField
           id="standard-select-location"

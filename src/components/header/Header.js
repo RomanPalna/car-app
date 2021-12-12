@@ -6,7 +6,7 @@ import Dropdown from "./Dropdown";
 
 export default function Header() {
   return (
-    <header>
+    <header className="header">
       <Logo />
       <Navigation />
       <ChooseLocation />

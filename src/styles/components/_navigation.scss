@@ -5,8 +5,12 @@
   font-size: 16px;
   line-height: 19px;
   color: #000000;
-}
 
-.link.active {
-  color: #07b1fd;
+  &.active {
+    color: #07b1fd;
+  }
+
+  &:not(:last-child) {
+    margin-right: 25px;
+  }
 }
