@@ -5,7 +5,7 @@ import PageNotFound from "./components/PageNotFound";
 function App() {
   return (
     <>
-      <Header />;
+      <Header />
       <Routes>
         <Route path="/buy" element={<div>Заглушка Buy</div>} />
         <Route path="/sell" element={<div>Заглушка sell</div>} />
