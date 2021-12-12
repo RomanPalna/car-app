@@ -12,7 +12,7 @@ function App() {
         <Route path="/loan" element={<div>Заглушка Loan</div>} />
         <Route path="/contacts" element={<div>Заглушка Contacts</div>} />
 
-        <Route element={<PageNotFound />} />
+        <Route path="*" element={<PageNotFound />} />
       </Routes>
     </>
   );
