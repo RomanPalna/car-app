@@ -1,0 +1,45 @@
+.loan {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto 60px;
+
+  &__title {
+    font-family: PT Root UI;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 64px;
+    line-height: 77px;
+    margin-right: 540px;
+
+    color: #2c2c2c;
+  }
+}
+
+.choosing {
+  margin: 0;
+
+  &__title {
+    position: relative;
+    font-family: PT Root UI;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 160%;
+    color: #2c2c2c;
+    margin: 0 0 30px;
+
+    &:before {
+      position: absolute;
+      content: "01";
+      color: #07b1fd;
+      height: 30px;
+      width: 24px;
+      left: -44px;
+      font-family: PT Root UI;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 24px;
+      line-height: 160%;
+    }
+  }
+}
