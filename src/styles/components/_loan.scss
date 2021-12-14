@@ -48,3 +48,112 @@
     margin: 0;
   }
 }
+
+.car {
+  display: block;
+  max-width: 288px;
+  width: 100%;
+
+  &__img {
+    border-radius: 8px 8px 0px 0px;
+  }
+
+  &__form {
+    border: 1px solid #e1e1e1;
+    border-top: none;
+    box-sizing: border-box;
+    border-radius: 0px 0px 8px 8px;
+    padding: 30px 30px 27px;
+    margin: 0;
+
+    &--year {
+      font-family: PT Root UI;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 16px;
+      line-height: 160%;
+      color: #949494;
+      margin: 0 0 5px;
+    }
+
+    &--model {
+      font-family: PT Root UI sans-serif;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 18px;
+      line-height: 120%;
+      color: #464646;
+      margin: 0 0 25px;
+    }
+
+    &--credit {
+      display: flex;
+      justify-content: space-between;
+      margin: 0 0 5px;
+      font-family: PT Root UI;
+      font-style: normal;
+      font-weight: normal;
+      line-height: 160%;
+      color: #949494;
+
+      &--price {
+        font-size: 18px;
+      }
+
+      &--loan {
+        font-size: 16px;
+      }
+    }
+
+    &--protect {
+      display: flex;
+      justify-content: space-between;
+      font-family: PT Root UI;
+      font-style: normal;
+      font-weight: bold;
+      line-height: 160%;
+      color: #07b1fd;
+      margin: 0 0 20px;
+
+      &--price {
+        font-size: 24px;
+      }
+      &--loan {
+        font-size: 14px;
+      }
+    }
+  }
+}
+
+.MuiFormControlLabel-root {
+  display: block;
+  width: 100%;
+  background: #efefef;
+  border-radius: 10px;
+  padding: 22px 17px;
+  margin: 0;
+}
+
+span.MuiFormControlLabel-label {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 160%;
+  color: #464646;
+  margin-right: auto;
+}
+
+label.MuiFormControlLabel-labelPlacementStart {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.MuiButtonBase-root {
+  padding: 0;
+  width: 16px;
+  height: 16px;
+}
+
+.carCheckbox.Mui-checked {
+  background: red;
+}
