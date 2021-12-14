@@ -25,7 +25,7 @@ export default function CheckboxLabels() {
             size="small"
           />
         }
-        className="FormGroup"
+        className="FormControlLabel"
         labelPlacement="start"
         label="Выбрано это авто"
       />

@@ -51,7 +51,7 @@
 
 .car {
   display: block;
-  max-width: 288px;
+  max-width: 378px;
   width: 100%;
 
   &__img {
@@ -154,6 +154,6 @@ label.MuiFormControlLabel-labelPlacementStart {
   height: 16px;
 }
 
-.carCheckbox.Mui-checked {
-  background: red;
+.carCheckbox.Mui-checked + .car__form--model {
+  background-color: red;
 }
