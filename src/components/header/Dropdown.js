@@ -1,6 +1,6 @@
 import { useState } from "react";
 import dropdown from "../../images/dropdown.png";
-import close from "../../images/close.png";
+import CloseOutlinedIcon from "@mui/icons-material/CloseOutlined";
 
 const Dropdown = ({ children }) => {
   const [visible, setVisible] = useState(false);
@@ -13,7 +13,7 @@ const Dropdown = ({ children }) => {
     <div className="dropdown">
       <button type="button" onClick={toggle} color="success">
         {visible ? (
-          <img src={close} alt="dropdown menu" width="30" />
+          <CloseOutlinedIcon style={{ fill: "#464646" }} />
         ) : (
           <img src={dropdown} alt="dropdown menu" />
         )}
