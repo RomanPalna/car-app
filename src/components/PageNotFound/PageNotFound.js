@@ -6,7 +6,7 @@ export default function PageNotFound() {
     <div className="pageNotFound">
       <img alt="page not found" src={pageNotFound}></img>
       <Link className="shine-button" to="/loan">
-        Let's go to car loan
+        Перейти к автокредитам
       </Link>
     </div>
   );
