@@ -1,21 +1,52 @@
 .footer {
-    display: block;
-    background: #334356;
-    padding-top: 34px;
-    padding-bottom: 34px;
+  display: block;
+  background: #334356;
+  padding-top: 1px;
 
-    &__oferta {
-        max-width: 1200px;
-        width: 100%;
-        margin: 0 auto;
+  &__oferta {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  &__title {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 160%;
+    color: #bdbdbd;
+    margin-top: 34px;
+    margin-bottom: 34px;
+  }
+
+  &__nav {
+    background: #2c3a4b;
+  }
+
+  &__links {
+    display: flex;
+    justify-content: start;
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+
+    &--title {
+      font-style: normal;
+      font-weight: bold;
+      font-size: 24px;
+      line-height: 120%;
+      color: #e1e1e1;
     }
 
-    &__title {
-        font-style: normal;
-        font-weight: normal;
-        font-size: 16px;
-        line-height: 160%;
-        color: #BDBDBD;
-        margin: 0;
+    &--item {
+      font-style: normal;
+      font-weight: normal;
+      font-size: 18px;
+      line-height: 160%;
+      color: #bdbdbd;
     }
+  }
+
+  &__group {
+  }
 }
