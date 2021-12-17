@@ -3,18 +3,18 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Slider from "@mui/material/Slider";
 
-function valueLabelFormat(value) {
-  const units = ["Месяц", "Год"];
-
-  let unitIndex = 0;
+function valueFormst(value) {
   let scaledValue = value;
 
-  while (scaledValue >= 12 && unitIndex < units.length - 1) {
-    unitIndex += 1;
-    scaledValue /= 12;
+  if (scaledValue < 12) {
+    return `${scaledValue} months`;
   }
+  if (scaledValue >= 12) {
+    const months = scaledValue % 12;
+    const years = (scaledValue - (scaledValue % 12)) / 12;
 
-  return `${scaledValue} ${units[unitIndex]}`;
+    return `${years} years ${months} months`;
+  }
 }
 
 function calculateValue(value) {
@@ -31,16 +31,16 @@ export default function LoanTermSlider() {
   return (
     <Box sx={{ width: 500 }}>
       <Typography id="non-linear-slider" gutterBottom>
-        {valueLabelFormat(calculateValue(value))}
+        {valueFormst(calculateValue(value))}
       </Typography>
       <Slider
         value={value}
         min={0}
         step={1}
-        max={96}
+        max={59}
         scale={calculateValue}
-        getAriaValueText={valueLabelFormat}
-        valueLabelFormat={valueLabelFormat}
+        getAriaValueText={valueFormst}
+        valueLabelFormat={valueFormst}
         onChange={handleChange}
         valueLabelDisplay="auto"
         aria-labelledby="non-linear-slider"

@@ -1,6 +1,5 @@
 import CheckboxLabels from "./CheckboxLabel";
 import noImage from "../../../images/noImage.jpg";
-import { useState } from "react";
 
 const car = {
   image: noImage,
