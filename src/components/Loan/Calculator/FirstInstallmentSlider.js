@@ -14,7 +14,7 @@ function calculateValue(value) {
 }
 
 export default function FirstinstallmentSlider() {
-  const [value, setValue] = useState(0);
+  const [value, setValue] = useState(-1);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -27,7 +27,7 @@ export default function FirstinstallmentSlider() {
       </Typography>
       <Slider
         value={value}
-        min={0}
+        min={-1}
         step={1}
         max={49}
         scale={calculateValue}

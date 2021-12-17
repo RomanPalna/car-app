@@ -7,13 +7,13 @@ function valueFormst(value) {
   let scaledValue = value;
 
   if (scaledValue < 12) {
-    return `${scaledValue} months`;
+    return `${scaledValue} месяцев`;
   }
   if (scaledValue >= 12) {
     const months = scaledValue % 12;
     const years = (scaledValue - (scaledValue % 12)) / 12;
 
-    return `${years} years ${months} months`;
+    return `${years} лет ${months} месяцев`;
   }
 }
 

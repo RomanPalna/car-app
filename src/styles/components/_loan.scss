@@ -165,4 +165,28 @@ label.MuiFormControlLabel-labelPlacementStart {
 .calculator {
   display: flex;
   justify-content: space-between;
+
+  &__data {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 25px;
+  }
+
+  &__title {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 160%;
+    color: #8d8d8d;
+  }
+}
+
+p.css-d3wcwz-MuiTypography-root {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 160%;
+  color: #07b1fd;
+
+  margin-bottom: 25px;
 }
