@@ -162,6 +162,6 @@ label.MuiFormControlLabel-labelPlacementStart {
   height: 16px;
 }
 
-.carCheckbox.Mui-checked + .MuiFormControlLabel-root.FormControlLabel {
+.carCheckbox.Mui-checked + span.MuiFormControlLabel-label {
   background-color: red;
 }

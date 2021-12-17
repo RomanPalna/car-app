@@ -1,5 +1,6 @@
 import CheckboxLabels from "./CheckboxLabel";
 import noImage from "../../../images/noImage.jpg";
+import { useState } from "react";
 
 const car = {
   image: noImage,
@@ -14,8 +15,10 @@ export default function CarCard() {
   return (
     <>
       <p className="car__count">Найдено 1 автомобиль</p>
+
       <div className="car">
         <img className="car__img" alt="car" src={car.image} />
+
         <form className="car__form">
           <p className="car__form--year">
             <span>{car.year} год</span> / <span>{car.engine}</span>
