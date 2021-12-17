@@ -6,22 +6,14 @@ import Slider from "@mui/material/Slider";
 function valueFormst(value) {
   let scaledValue = value;
 
-  if (scaledValue < 12) {
-    return `${scaledValue} months`;
-  }
-  if (scaledValue >= 12) {
-    const months = scaledValue % 12;
-    const years = (scaledValue - (scaledValue % 12)) / 12;
-
-    return `${years} years ${months} months`;
-  }
+  return `${scaledValue} %`;
 }
 
 function calculateValue(value) {
   return value + 1;
 }
 
-export default function LoanTermSlider() {
+export default function FirstinstallmentSlider() {
   const [value, setValue] = useState(0);
 
   const handleChange = (event, newValue) => {
@@ -37,7 +29,7 @@ export default function LoanTermSlider() {
         value={value}
         min={0}
         step={1}
-        max={59}
+        max={49}
         scale={calculateValue}
         getAriaValueText={valueFormst}
         valueLabelFormat={valueFormst}

@@ -162,6 +162,7 @@ label.MuiFormControlLabel-labelPlacementStart {
   height: 16px;
 }
 
-.carCheckbox.Mui-checked + span.MuiFormControlLabel-label {
-  background-color: red;
+.calculator {
+  display: flex;
+  justify-content: space-between;
 }
