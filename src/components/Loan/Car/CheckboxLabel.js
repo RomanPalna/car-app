@@ -10,7 +10,6 @@ export default function CheckboxLabels({ onHandleChange }) {
 
   const handleChange = (event) => {
     setState(!state);
-    onHandleChange(!state);
   };
 
   return (
