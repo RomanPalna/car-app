@@ -3,7 +3,7 @@ import ChoosingAuto from "./Car";
 import LoanCalculator from "./Calculator";
 import Information from "./Information";
 import AutoCost from "./Calculator/AutoCost";
-import Footer from "../Footer/Footer";
+
 
 export default function Loan() {
   return (
@@ -13,7 +13,7 @@ export default function Loan() {
       <LoanCalculator />
       <AutoCost />
       <Information />
-      <Footer/>
+     
     </main>
   );
 }

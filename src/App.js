@@ -1,7 +1,9 @@
 import { Routes, Route } from "react-router-dom";
+import Footer from "./components/Footer";
 import Header from "./components/header";
 import Loan from "./components/Loan";
 import PageNotFound from "./components/PageNotFound";
+
 
 function App() {
   return (
@@ -15,6 +17,7 @@ function App() {
 
         <Route path="*" element={<PageNotFound />} />
       </Routes>
+<Footer/>
     </>
   );
 }
