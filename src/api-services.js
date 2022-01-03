@@ -29,7 +29,8 @@ async function searchApiService() {
 }
 
 async function modelSearchApiService() {
-  const model_URL = `${BASE_URL}categories/1/marks?api_key=${API_KEY}`;
+  const categoryID = 1;
+  const model_URL = `${BASE_URL}categories/${categoryID}/marks?api_key=${API_KEY}`;
 
   const response = await axios.get(model_URL);
   return response
@@ -37,4 +38,29 @@ async function modelSearchApiService() {
     : Promise.reject(new Error("Models not found"));
 }
 
-export default { searchApiService, modelSearchApiService };
+async function markSearchApiService() {
+  const categoryID = 1;
+  const markID = 2;
+  const mark_URL = `http://api.auto.ria.com/categories/${categoryID}/marks/${markID}/models?api_key=${API_KEY}`;
+
+  const response = await axios.get(mark_URL);
+  return response
+    ? response.data
+    : Promise.reject(new Error("Error serch marks"));
+}
+
+async function advertApiService() {
+  const advertID = 19050985;
+
+  const advert_URL = `${BASE_URL}info?api_key=${API_KEY}&auto_id=${advertID}`;
+
+  const response = await axios.get(advert_URL);
+  return response ? response.data : Promise.reject(new Error("Error advert"));
+}
+
+export default {
+  searchApiService,
+  modelSearchApiService,
+  markSearchApiService,
+  advertApiService,
+};
