@@ -51,3 +51,46 @@
 .links__group:not(:last-child) {
   margin-right: 70px;
 }
+
+.copyright {
+  background-color: #2c3a4b;
+  border-top: 1px solid #556273;
+
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 42px 0;
+  }
+
+  &__brand {
+    margin: 0;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 160%;
+    color: #ffffff;
+  }
+
+  &__logo {
+    display: flex;
+    align-items: baseline;
+
+    &--img {
+      width: 120px;
+      height: 15px;
+      align-content: center;
+    }
+
+    &--text {
+      font-style: normal;
+      font-weight: normal;
+      font-size: 18px;
+      line-height: 160%;
+      color: #9f9f9f;
+      margin: 0 19px 0 0;
+    }
+  }
+}
