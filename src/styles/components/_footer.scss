@@ -21,6 +21,7 @@
 
   &__nav {
     background: #2c3a4b;
+    padding-bottom: 60px;
   }
 
   &__links {
@@ -46,7 +47,7 @@
       color: #bdbdbd;
     }
   }
-
-  &__group {
-  }
+}
+.links__group:not(:last-child) {
+  margin-right: 70px;
 }
