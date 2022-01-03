@@ -17,13 +17,24 @@ const SEARCH_PARAMETERS = [
   },
 ];
 
-const BASE_URL = `https://developers.ria.com/auto/search?api_key=${API_KEY}&${SEARCH_PARAMETERS}`;
+const BASE_URL = `https://developers.ria.com/auto/`;
 
-async function apiService() {
-  const response = await axios.get(BASE_URL);
+async function searchApiService() {
+  const search_URL = `${BASE_URL}search?api_key=${API_KEY}&${SEARCH_PARAMETERS}`;
+
+  const response = await axios.get(search_URL);
   return response
     ? await response.data
     : Promise.reject(new Error("Not Found"));
 }
 
-export default { apiService };
+async function modelSearchApiService() {
+  const model_URL = `${BASE_URL}categories/1/marks?api_key=${API_KEY}`;
+
+  const response = await axios.get(model_URL);
+  return response
+    ? await response.data
+    : Promise.reject(new Error("Models not found"));
+}
+
+export default { searchApiService, modelSearchApiService };
