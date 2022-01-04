@@ -10,7 +10,7 @@ export default function Loan() {
   const [cars, setCars] = useState([]);
 
   useEffect(() => {
-    serviceAPI.advertApiService().then((cars) => setCars(cars));
+    serviceAPI.searchApiService().then((cars) => setCars(cars));
   }, []);
 
   console.log(cars);
