@@ -1,19 +1,20 @@
 import { createReducer, combineReducers } from "@reduxjs/toolkit";
 import * as marksActions from "./marks-action";
+import { fetchMarks } from "./marks-operations";
 
 const marks = createReducer([], {
-  [marksActions.fetchMarksSuccess]: (_, action) => action.payload,
+  [fetchMarks.fulfilled]: (_, action) => action.payload,
 });
 
 const isLoading = createReducer(false, {
-  [marksActions.fetchMarksRequest]: () => true,
-  [marksActions.fetchMarksSuccess]: () => false,
-  [marksActions.frtchMarksError]: () => false,
+  [fetchMarks.pending]: () => true,
+  [fetchMarks.fulfilled]: () => false,
+  [fetchMarks.rejected]: () => false,
 });
 
 const error = createReducer(null, {
-  [marksActions.frtchMarksError]: (_, action) => action.payload,
-  [marksActions.fetchMarksRequest]: () => null,
+  [fetchMarks.rejected]: (_, action) => action.payload,
+  [fetchMarks.pending]: () => null,
 });
 
 export default combineReducers({
