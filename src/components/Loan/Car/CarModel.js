@@ -1,9 +1,9 @@
-import React, { useEffect } from "react";
+import { useState } from "react";
+// import * as marksOperations from "../../../redux/marks/marks-operations";
+// import { useSelector, useDispatch } from "react-redux";
 import { makeStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
 import MenuItem from "@material-ui/core/MenuItem";
-
-import * as api from "../../../autoRiaAPI";
 
 const carsModels = [
   {
@@ -31,14 +31,14 @@ const useStyles = makeStyles((theme) => ({
 
 export default function CarModels() {
   const classes = useStyles();
-  const [cars, setCars] = React.useState("");
-  const [models, setModels] = React.useState([]);
 
-  useEffect(() => {
-    api.carApi().then((res) => setModels(res));
-    models.map((cars) => setCars(cars));
-  }, [models]);
-  console.log(cars);
+  // const dispatch = useDispatch();
+  // const marks = useSelector((state) => state.marks.marks);
+  const [cars, setCars] = useState("");
+
+  // useEffect(() => {
+  //   dispatch(marksOperations.fetchMarks());
+  // }, [dispatch]);
 
   const handleChange = (event) => {
     setCars(event.target.value);
@@ -49,19 +49,17 @@ export default function CarModels() {
       <div>
         <TextField
           id="outlined-select-model"
-          select
+          select={carsModels}
           label="Выберите модель"
           value={cars}
           onChange={handleChange}
           variant="outlined"
         >
-          {cars
-            ? carsModels.map((model) => (
-                <MenuItem key={model.title} value={model.title}>
-                  {model.title}
-                </MenuItem>
-              ))
-            : ""}
+          {carsModels.map((model) => (
+            <MenuItem key={model.label} value={model.label}>
+              {model.label}
+            </MenuItem>
+          ))}
         </TextField>
       </div>
     </form>

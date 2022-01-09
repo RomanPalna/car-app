@@ -1,23 +1,19 @@
-import { configureStore, getDefaultMiddleware } from "@reduxjs/toolkit";
+import { configureStore } from "@reduxjs/toolkit";
 import logger from "redux-logger";
+import marksReducer from "../marks/marks-reducer";
 
-const middleware = [...getDefaultMiddleware(), logger];
+// const carsState = {
 
-const initialState = {};
-
-const models = (state = initialState, { type, payload }) => {
-  switch (type) {
-    case "firstInstallment/value":
-      return state;
-
-    default:
-      return state;
-  }
-};
+//   models: [],
+//   cars: [],
+//   isLoading: false
+// };
 
 const store = configureStore({
-  reducer: { reducer: models },
-  middleware,
+  reducer: {
+    marks: marksReducer,
+  },
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(logger),
   devTools: process.env.NODE_ENV === "development",
 });
 

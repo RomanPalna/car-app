@@ -65,34 +65,44 @@ class AutoRiaApi {
   }
 }
 
-export async function carApi() {
+export async function marks() {
   const autoRiaApi = new AutoRiaApi(
     "https://developers.ria.com",
     "OBl7sJP8JRALDmgicgFr6XMJCFl6PWmWrvc5BAic"
   );
   const marks = await autoRiaApi.getMarks(1);
 
-  const mark = marks.find((mark) => mark.name === "BMW");
-
-  const models = await autoRiaApi.getModelsByMark(1, mark.value);
-
-  const model = models.find((model) => model.name === "X7");
-
-  const autos = await autoRiaApi.search({
-    category_id: 1,
-    s_yers: [2021],
-    marka_id: [mark.value],
-    model_id: [model.value],
-  });
-
-  const promises = autos.result.search_result.ids.map((id) => {
-    return autoRiaApi.getAdById(id);
-  });
-
-  const ads = await Promise.all(promises);
-  // console.log(autos.result.search_result.count, JSON.stringify(ads));
-  return ads;
+  return marks;
 }
+
+// export async function carApi() {
+//   const autoRiaApi = new AutoRiaApi(
+//     "https://developers.ria.com",
+//     "OBl7sJP8JRALDmgicgFr6XMJCFl6PWmWrvc5BAic"
+//   );
+//   const marks = await autoRiaApi.getMarks(1);
+
+//   const mark = marks.find((mark) => mark.name === "BMW");
+
+//   const models = await autoRiaApi.getModelsByMark(1, mark.value);
+
+//   const model = models.find((model) => model.name === "X7");
+
+//   const autos = await autoRiaApi.search({
+//     category_id: 1,
+//     s_yers: [2021],
+//     marka_id: [mark.value],
+//     model_id: [model.value],
+//   });
+
+//   const promises = autos.result.search_result.ids.map((id) => {
+//     return autoRiaApi.getAdById(id);
+//   });
+
+//   const ads = await Promise.all(promises);
+//   // console.log(autos.result.search_result.count, JSON.stringify(ads));
+//   return ads;
+// }
 
 // 1.
 //    On load `const marks = await autoRiaApi.getMarks(1);`
