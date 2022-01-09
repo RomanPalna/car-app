@@ -1,23 +1,24 @@
-import { combineReducers } from "redux";
-import { configureStore } from "@reduxjs/toolkit";
-import { composeWithDevTools } from "redux-devtools-extension";
+import { configureStore, getDefaultMiddleware } from "@reduxjs/toolkit";
+import logger from "redux-logger";
 
-const initialState = { percentage: 0 };
+const middleware = [...getDefaultMiddleware(), logger];
 
-const MyReducer = (state = initialState, { type, payload }) => {
+const initialState = {};
+
+const models = (state = initialState, { type, payload }) => {
   switch (type) {
     case "firstInstallment/value":
-      return {
-        percentage: state.percentage + payload,
-      };
+      return state;
 
     default:
       return state;
   }
 };
 
-const rootReducer = combineReducers({ MyReducer });
-
-const store = configureStore({ reducer: rootReducer });
+const store = configureStore({
+  reducer: { reducer: models },
+  middleware,
+  devTools: process.env.NODE_ENV === "development",
+});
 
 export default store;

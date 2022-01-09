@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
 import MenuItem from "@material-ui/core/MenuItem";
+
+import * as api from "../../../autoRiaAPI";
 
 const carsModels = [
   {
@@ -29,7 +31,14 @@ const useStyles = makeStyles((theme) => ({
 
 export default function CarModels() {
   const classes = useStyles();
-  const [cars, setCars] = React.useState("M2");
+  const [cars, setCars] = React.useState("");
+  const [models, setModels] = React.useState([]);
+
+  useEffect(() => {
+    api.carApi().then((res) => setModels(res));
+    models.map((cars) => setCars(cars));
+  }, [models]);
+  console.log(cars);
 
   const handleChange = (event) => {
     setCars(event.target.value);
@@ -46,11 +55,13 @@ export default function CarModels() {
           onChange={handleChange}
           variant="outlined"
         >
-          {carsModels.map((option) => (
-            <MenuItem key={option.label} value={option.label}>
-              {option.label}
-            </MenuItem>
-          ))}
+          {cars
+            ? carsModels.map((model) => (
+                <MenuItem key={model.title} value={model.title}>
+                  {model.title}
+                </MenuItem>
+              ))
+            : ""}
         </TextField>
       </div>
     </form>

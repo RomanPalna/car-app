@@ -1,6 +1,4 @@
 import { useState } from "react";
-import { connect } from "react-redux";
-import * as actions from "../../../redux/actions/action";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Slider from "@mui/material/Slider";

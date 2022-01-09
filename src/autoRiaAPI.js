@@ -65,7 +65,7 @@ class AutoRiaApi {
   }
 }
 
-(async () => {
+export async function carApi() {
   const autoRiaApi = new AutoRiaApi(
     "https://developers.ria.com",
     "OBl7sJP8JRALDmgicgFr6XMJCFl6PWmWrvc5BAic"
@@ -81,7 +81,6 @@ class AutoRiaApi {
   const autos = await autoRiaApi.search({
     category_id: 1,
     s_yers: [2021],
-
     marka_id: [mark.value],
     model_id: [model.value],
   });
@@ -91,8 +90,10 @@ class AutoRiaApi {
   });
 
   const ads = await Promise.all(promises);
-  console.log(autos.result.search_result.count, JSON.stringify(ads));
-})();
+  // console.log(autos.result.search_result.count, JSON.stringify(ads));
+  return ads;
+}
+
 // 1.
 //    On load `const marks = await autoRiaApi.getMarks(1);`
 //    Render in marks list
