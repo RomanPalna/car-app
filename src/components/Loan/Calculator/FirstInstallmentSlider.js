@@ -1,16 +1,17 @@
 import { useState } from "react";
+import { connect } from "react-redux";
+import * as actions from "../../../redux/actions/action";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Slider from "@mui/material/Slider";
 
 function valueFormst(value) {
   let scaledValue = value;
-
   return `${scaledValue} %`;
 }
 
-function calculateValue(value) {
-  return value + 1;
+function calculateValue(percentage) {
+  return percentage + 1;
 }
 
 export default function FirstinstallmentSlider() {
