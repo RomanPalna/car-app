@@ -1,5 +1,4 @@
 import { createReducer, combineReducers } from "@reduxjs/toolkit";
-import * as marksActions from "./marks-action";
 import { fetchMarks } from "./marks-operations";
 
 const marks = createReducer([], {
