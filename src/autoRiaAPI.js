@@ -75,6 +75,15 @@ export async function marks() {
   return marks;
 }
 
+export async function models(markValue) {
+  const autoRiaApi = new AutoRiaApi(
+    "https://developers.ria.com",
+    "OBl7sJP8JRALDmgicgFr6XMJCFl6PWmWrvc5BAic"
+  );
+  const models = await autoRiaApi.getModelsByMark(1, markValue);
+  return models;
+}
+
 // export async function carApi() {
 //   const autoRiaApi = new AutoRiaApi(
 //     "https://developers.ria.com",

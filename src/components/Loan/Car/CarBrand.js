@@ -1,24 +1,9 @@
 import { useEffect, useState } from "react";
-import * as marksOperations from "../../../redux/marks/marks-operations";
 import { useSelector, useDispatch } from "react-redux";
 import { makeStyles } from "@material-ui/core/styles";
+import { marksOperations, marksSelector } from "../../../redux/marks";
 import TextField from "@material-ui/core/TextField";
 import MenuItem from "@material-ui/core/MenuItem";
-
-// const carsBrands = [
-//   {
-//     label: "Mersedes-Benz",
-//   },
-//   {
-//     label: "BMW",
-//   },
-//   {
-//     label: "Honda",
-//   },
-//   {
-//     label: "Hyundai",
-//   },
-// ];
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -34,7 +19,7 @@ export default function CarBrand() {
   const [cars, setCars] = useState("");
 
   const dispatch = useDispatch();
-  const marks = useSelector((state) => state.marks.marks);
+  const marks = useSelector(marksSelector.getMark);
 
   useEffect(() => {
     dispatch(marksOperations.fetchMarks());
@@ -56,7 +41,7 @@ export default function CarBrand() {
           variant="outlined"
         >
           {marks.map((mark) => (
-            <MenuItem key={mark.value} value={mark.name}>
+            <MenuItem key={mark.value} value={mark.value}>
               {mark.name}
             </MenuItem>
           ))}
