@@ -6,22 +6,6 @@ import * as modelOperations from "../../../redux/models/model-operations";
 import * as modelSelector from "../../../redux/models/model-selector";
 import TextField from "@material-ui/core/TextField";
 import MenuItem from "@material-ui/core/MenuItem";
-import { marks } from "../../../autoRiaAPI";
-
-const carsModels = [
-  {
-    label: "X5",
-  },
-  {
-    label: "M2",
-  },
-  {
-    label: "E-Class 200",
-  },
-  {
-    label: "Pathfinder",
-  },
-];
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -33,13 +17,11 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function CarModels() {
+  const [cars, setCars] = useState("");
   const classes = useStyles();
-
   const dispatch = useDispatch();
   const model = useSelector(modelSelector.getValue);
   const getCars = useSelector(modelSelector.getCars);
-
-  const [cars, setCars] = useState("");
 
   useEffect(() => {
     if (!model) {
