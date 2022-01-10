@@ -46,7 +46,7 @@ export default function CarBrand() {
           variant="outlined"
         >
           {marks.map((mark) => (
-            <MenuItem key={mark.value} value={mark.value}>
+            <MenuItem key={mark.value} value={mark.name}>
               {mark.name}
             </MenuItem>
           ))}
