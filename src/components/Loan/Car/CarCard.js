@@ -1,3 +1,8 @@
+import { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import * as modelSelector from "../../../redux/models/model-selector";
+import * as markSelector from "../../../redux/autosCard/auto-selector";
+import * as autoOperations from "../../../redux/autosCard/auto-operations";
 import CheckboxLabels from "./CheckboxLabel";
 import noImage from "../../../images/noImage.jpg";
 
@@ -11,6 +16,17 @@ const car = {
 };
 
 export default function CarCard() {
+  const dispatch = useDispatch();
+  const model = useSelector(modelSelector.getValue);
+  const mark = useSelector(markSelector.getMarkId);
+
+  useEffect(() => {
+    dispatch(autoOperations.fetchCarCards(mark, model));
+  }, [dispatch, mark, model]);
+
+  console.log("model ", model);
+  console.log("mark ", mark);
+
   return (
     <>
       <p className="car__count">Найдено 1 автомобиль</p>
