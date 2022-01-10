@@ -87,20 +87,21 @@ export async function models(markValue) {
 export async function autoCard(markID, modelID) {
   const autoRiaApi = new AutoRiaApi(
     "https://developers.ria.com",
-    "OBl7sJP8JRALDmgicgFr6XMJCFl6PWmWrvc5BAic",
-    {
-      category_id: 1,
-      s_yers: [2021],
-      marka_id: [markID],
-      model_id: [modelID],
-    }
+    "OBl7sJP8JRALDmgicgFr6XMJCFl6PWmWrvc5BAic"
   );
 
-  const autos = autoRiaApi.result.search_result.ids.map((id) => {
+  const autos = await autoRiaApi.search({
+    category_id: 1,
+    s_yers: [2021],
+    marka_id: [markID],
+    model_id: [modelID],
+  });
+
+  const carCards = autos.result.search_result.ids.map((id) => {
     return autoRiaApi.getAdById(id);
   });
 
-  return autos;
+  return carCards;
 }
 
 // export async function carApi() {

@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { makeStyles } from "@material-ui/core/styles";
 import * as modelOperations from "../../../redux/models/model-operations";
 import * as modelSelector from "../../../redux/models/model-selector";
-import * as autoOperations from "../../../redux/autosCard/auto-actions";
+import * as autoActions from "../../../redux/autosCard/auto-actions";
 import TextField from "@material-ui/core/TextField";
 import MenuItem from "@material-ui/core/MenuItem";
 
@@ -18,7 +18,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function CarModels() {
   const classes = useStyles();
-
+  const [cars, setCars] = useState("");
   const dispatch = useDispatch();
   const model = useSelector(modelSelector.getValue);
   const getCars = useSelector(modelSelector.getCars);
@@ -28,10 +28,9 @@ export default function CarModels() {
   }, [dispatch, model]);
 
   useEffect(() => {
-    dispatch(autoOperations.getMarkValue);
-  }, [dispatch]);
+    dispatch(autoActions.getMarkValue(cars));
+  }, [cars, dispatch]);
 
-  const [cars, setCars] = useState("");
   const handleChange = (event) => {
     setCars(event.target.value);
   };
