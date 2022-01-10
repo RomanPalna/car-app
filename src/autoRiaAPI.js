@@ -79,15 +79,12 @@ export async function models(markValue) {
   return models;
 }
 
-export async function autoCard(markID, modelID) {
+export async function autoCard({ mark, model }) {
   const autos = await autoRiaApi.search({
     category_id: 1,
-    s_yers: [2021],
-    page: 0,
-    target: "search",
-    section: "auto",
-    marka_id: [markID],
-    model_id: [modelID],
+
+    marka_id: [model],
+    model_id: [mark],
   });
 
   const carCards = autos.result.search_result.ids.map((id) => {

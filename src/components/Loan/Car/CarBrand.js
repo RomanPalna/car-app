@@ -30,8 +30,6 @@ export default function CarBrand() {
     dispatch(getModelValue(cars));
   }, [cars, dispatch]);
 
-  console.log(cars);
-
   const handleChange = (event) => {
     setCars(event.target.value);
   };

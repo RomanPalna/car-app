@@ -17,9 +17,9 @@ const car = {
 
 export default function CarCard() {
   const dispatch = useDispatch();
-  const model = useSelector(modelSelector.getValue);
-  const mark = useSelector(markSelector.getMarkId);
 
+  const mark = useSelector(markSelector.getMarkId);
+  const model = useSelector(modelSelector.getValue);
   const getCarCards = useSelector(markSelector.getCarCards);
 
   console.log(getCarCards);
@@ -28,7 +28,11 @@ export default function CarCard() {
   console.log("mark ", mark);
 
   useEffect(() => {
-    dispatch(autoOperations.fetchCarCards(mark, model));
+    let cars = {
+      model: model,
+      mark: mark,
+    };
+    dispatch(autoOperations.fetchCarCards(cars));
   }, [dispatch, mark, model]);
 
   return (
