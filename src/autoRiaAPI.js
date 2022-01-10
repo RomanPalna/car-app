@@ -56,7 +56,6 @@ class AutoRiaApi {
       const { data } = await this.client.get(url, {
         params: { auto_id: adId },
       });
-
       return data;
     } catch (error) {
       console.log(error);
@@ -65,34 +64,28 @@ class AutoRiaApi {
   }
 }
 
-export async function marks() {
-  const autoRiaApi = new AutoRiaApi(
-    "https://developers.ria.com",
-    "OBl7sJP8JRALDmgicgFr6XMJCFl6PWmWrvc5BAic"
-  );
-  const marks = await autoRiaApi.getMarks(1);
+const autoRiaApi = new AutoRiaApi(
+  "https://developers.ria.com",
+  "OBl7sJP8JRALDmgicgFr6XMJCFl6PWmWrvc5BAic"
+);
 
+export async function marks() {
+  const marks = await autoRiaApi.getMarks(1);
   return marks;
 }
 
 export async function models(markValue) {
-  const autoRiaApi = new AutoRiaApi(
-    "https://developers.ria.com",
-    "OBl7sJP8JRALDmgicgFr6XMJCFl6PWmWrvc5BAic"
-  );
   const models = await autoRiaApi.getModelsByMark(1, markValue);
   return models;
 }
 
 export async function autoCard(markID, modelID) {
-  const autoRiaApi = new AutoRiaApi(
-    "https://developers.ria.com",
-    "OBl7sJP8JRALDmgicgFr6XMJCFl6PWmWrvc5BAic"
-  );
-
   const autos = await autoRiaApi.search({
     category_id: 1,
     s_yers: [2021],
+    page: 0,
+    target: "search",
+    section: "auto",
     marka_id: [markID],
     model_id: [modelID],
   });
@@ -101,9 +94,24 @@ export async function autoCard(markID, modelID) {
     return autoRiaApi.getAdById(id);
   });
 
-  return carCards;
+  return Promise.all(carCards);
 }
 
+// const autos = (markId, modelId) =>
+//   autoRiaApi.search({
+//     category_id: 1,
+//     s_yers: [2021],
+//     marka_id: [markId],
+//     model_id: [modelId],
+//   });
+
+// export async function autoCard() {
+//   const carCards = await autos.result.search_result.ids.map((id) => {
+//     return autoRiaApi.getAdById(id);
+//   });
+
+//   return Promise.all(carCards);
+// }
 // export async function carApi() {
 //   const autoRiaApi = new AutoRiaApi(
 //     "https://developers.ria.com",

@@ -20,12 +20,16 @@ export default function CarCard() {
   const model = useSelector(modelSelector.getValue);
   const mark = useSelector(markSelector.getMarkId);
 
-  useEffect(() => {
-    dispatch(autoOperations.fetchCarCards(mark, model));
-  }, [dispatch, mark, model]);
+  const getCarCards = useSelector(markSelector.getCarCards);
+
+  console.log(getCarCards);
 
   console.log("model ", model);
   console.log("mark ", mark);
+
+  useEffect(() => {
+    dispatch(autoOperations.fetchCarCards(mark, model));
+  }, [dispatch, mark, model]);
 
   return (
     <>
