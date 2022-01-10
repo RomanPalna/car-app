@@ -30,6 +30,8 @@ export default function CarBrand() {
     dispatch(getModelValue(cars));
   }, [cars, dispatch]);
 
+  console.log(cars);
+
   const handleChange = (event) => {
     setCars(event.target.value);
   };
@@ -46,7 +48,7 @@ export default function CarBrand() {
           variant="outlined"
         >
           {marks.map((mark) => (
-            <MenuItem key={mark.value} value={mark.name}>
+            <MenuItem key={mark.value} value={mark.value}>
               {mark.name}
             </MenuItem>
           ))}

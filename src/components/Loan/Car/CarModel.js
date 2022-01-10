@@ -17,20 +17,17 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function CarModels() {
-  const [cars, setCars] = useState("");
   const classes = useStyles();
+
   const dispatch = useDispatch();
   const model = useSelector(modelSelector.getValue);
   const getCars = useSelector(modelSelector.getCars);
 
   useEffect(() => {
-    if (!model) {
-      return;
-    }
-
     dispatch(modelOperations.fetchModels(model));
   }, [dispatch, model]);
 
+  const [cars, setCars] = useState("");
   const handleChange = (event) => {
     setCars(event.target.value);
   };
@@ -47,7 +44,7 @@ export default function CarModels() {
           variant="outlined"
         >
           {getCars.map((model) => (
-            <MenuItem key={model.value} value={model.name}>
+            <MenuItem key={model.value} value={model.value}>
               {model.name}
             </MenuItem>
           ))}
