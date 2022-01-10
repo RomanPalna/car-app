@@ -37,15 +37,17 @@ export default function CarModels() {
 
   const dispatch = useDispatch();
   const model = useSelector(modelSelector.getValue);
+  const getCars = useSelector(modelSelector.getCars);
+
   const [cars, setCars] = useState("");
-  const [models, setModels] = useState([]);
 
   useEffect(() => {
-    const carModels = dispatch(modelOperations.fetchModels(model));
-    setModels(carModels);
-  }, [dispatch, model]);
+    if (!model) {
+      return;
+    }
 
-  console.log(models);
+    dispatch(modelOperations.fetchModels(model));
+  }, [dispatch, model]);
 
   const handleChange = (event) => {
     setCars(event.target.value);
@@ -56,15 +58,15 @@ export default function CarModels() {
       <div>
         <TextField
           id="outlined-select-model"
-          select={false}
+          select={true}
           label="Выберите модель"
           value={cars}
           onChange={handleChange}
           variant="outlined"
         >
-          {carsModels.map((model) => (
-            <MenuItem key={model.label} value={model.label}>
-              {model.label}
+          {getCars.map((model) => (
+            <MenuItem key={model.value} value={model.name}>
+              {model.name}
             </MenuItem>
           ))}
         </TextField>
