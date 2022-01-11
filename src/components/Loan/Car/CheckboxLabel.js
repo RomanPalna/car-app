@@ -5,7 +5,7 @@ import Checkbox from "@material-ui/core/Checkbox";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import CircleOutlinedIcon from "@mui/icons-material/CircleOutlined";
 
-export default function CheckboxLabels({ onHandleChange }) {
+export default function CheckboxLabels() {
   const [state, setState] = useState(false);
 
   const handleChange = (event) => {
