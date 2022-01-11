@@ -3,7 +3,7 @@ import { fetchModels } from "./model-operations";
 import * as modelActions from "./models-actions";
 
 const value = createReducer([], {
-  [modelActions.getModelValue]: (_, action) => action.payload,
+  [modelActions.getMarkIdByModelValue]: (_, action) => action.payload,
 });
 
 const models = createReducer([], {

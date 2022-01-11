@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import * as modelSelector from "../../../redux/models/model-selector";
-import * as markSelector from "../../../redux/autosCard/auto-selector";
+import { getMarkId, getModelsId, getCarCards } from "../../../redux/selectors";
+
 import * as autoOperations from "../../../redux/autosCard/auto-operations";
 import CheckboxLabels from "./CheckboxLabel";
 import noImage from "../../../images/noImage.jpg";
@@ -18,14 +18,9 @@ const car = {
 export default function CarCard() {
   const dispatch = useDispatch();
 
-  const mark = useSelector(markSelector.getMarkId);
-  const model = useSelector(modelSelector.getValue);
-  const getCarCards = useSelector(markSelector.getCarCards);
-
-  console.log(getCarCards);
-
-  console.log("model ", model);
-  console.log("mark ", mark);
+  const model = useSelector(getModelsId);
+  const mark = useSelector(getMarkId);
+  const carCards = useSelector(getCarCards);
 
   useEffect(() => {
     let cars = {

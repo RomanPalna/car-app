@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { makeStyles } from "@material-ui/core/styles";
-import { marksOperations, marksSelector } from "../../../redux/marks";
-import { getModelValue } from "../../../redux/models/models-actions";
+import { marksOperations } from "../../../redux/marks";
+import * as marksSelector from "../../../redux/selectors";
+import { getMarkIdByModelValue } from "../../../redux/models/models-actions";
 import TextField from "@material-ui/core/TextField";
 import MenuItem from "@material-ui/core/MenuItem";
 
@@ -17,21 +18,24 @@ const useStyles = makeStyles((theme) => ({
 
 export default function CarBrand() {
   const classes = useStyles();
-  const [cars, setCars] = useState("");
+  const [modelId, setModelId] = useState("");
 
   const dispatch = useDispatch();
-  const marks = useSelector(marksSelector.getMark);
+  const modelsArr = useSelector(marksSelector.getModels);
+
+  console.log("marks Brand", modelsArr);
+  console.log("mark id Brand", modelId);
 
   useEffect(() => {
     dispatch(marksOperations.fetchMarks());
   }, [dispatch]);
 
   useEffect(() => {
-    dispatch(getModelValue(cars));
-  }, [cars, dispatch]);
+    dispatch(getMarkIdByModelValue(modelId));
+  }, [dispatch, modelId]);
 
   const handleChange = (event) => {
-    setCars(event.target.value);
+    setModelId(event.target.value);
   };
 
   return (
@@ -41,11 +45,11 @@ export default function CarBrand() {
           id="outlined-select-brand"
           select
           label="Выберите авто"
-          value={cars}
+          value={modelId}
           onChange={handleChange}
           variant="outlined"
         >
-          {marks.map((mark) => (
+          {modelsArr.map((mark) => (
             <MenuItem key={mark.value} value={mark.value}>
               {mark.name}
             </MenuItem>
