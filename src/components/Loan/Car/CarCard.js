@@ -57,7 +57,7 @@ export default function CarCard() {
                 </span>
               </p>
 
-              <CheckboxLabels />
+              <CheckboxLabels price={car.UAH} />
             </form>
           </div>
         ))}

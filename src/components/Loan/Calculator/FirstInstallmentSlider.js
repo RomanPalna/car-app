@@ -27,8 +27,6 @@ export default function FirstinstallmentSlider() {
     setValue(newValue);
   };
 
-  console.log(calculateValue(value));
-
   return (
     <Box sx={{ width: 550 }}>
       <Typography id="non-linear-slider" gutterBottom>

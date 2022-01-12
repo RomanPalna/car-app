@@ -1,18 +1,35 @@
-// function Calc(credit, months) {
-
-//     const monthInstallment = credit * (17% / (1+17%) - months - 1)
-// }
+import { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import * as calculatorActions from "../../../redux/calculator/calculator-action";
+import * as selectors from "../../../redux/selectors";
+import calculator from "../../../redux/js/index";
 
 export default function AutoCost() {
+  const price = useSelector(selectors.getFirstinstallment);
+  const months = useSelector(selectors.getMonths);
+  const percentage = useSelector(selectors.getPercentage);
+  const priceForEveryMonths = useSelector(selectors.getPriceForEveryMonths);
+  const dispatch = useDispatch();
+
+  console.log(calculator(price, months, percentage));
+
+  useEffect(() => {
+    dispatch(
+      calculatorActions.getPriceForEveryMonths(
+        calculator(price, months, percentage)
+      )
+    );
+  }, [dispatch, months, percentage, price]);
+
   return (
     <div className="autoCost__section">
       <div className="autoCost cost">
         <p className="autoCost__cost">Стоимость авто</p>
-        <p className="autoCost__sum">38000 грн</p>
+        <p className="autoCost__sum">{price || 0} грн</p>
       </div>
       <div className="autoCost">
         <p className="autoCost__cost">Ежемесячный платёж</p>
-        <p className="autoCost__sum">14000 грн </p>
+        <p className="autoCost__sum">{priceForEveryMonths.toFixed(0)} грн </p>
       </div>
     </div>
   );

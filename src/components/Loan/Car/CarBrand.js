@@ -23,9 +23,6 @@ export default function CarBrand() {
   const dispatch = useDispatch();
   const modelsArr = useSelector(marksSelector.getModels);
 
-  console.log("marks Brand", modelsArr);
-  console.log("mark id Brand", modelId);
-
   useEffect(() => {
     dispatch(marksOperations.fetchMarks());
   }, [dispatch]);
