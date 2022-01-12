@@ -1,4 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useDispatch } from "react-redux";
+import * as calculatorActions from "../../../redux/calculator/calculator-action";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Slider from "@mui/material/Slider";
@@ -15,9 +17,17 @@ function calculateValue(percentage) {
 export default function FirstinstallmentSlider() {
   const [value, setValue] = useState(-1);
 
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(calculatorActions.getPercentage(calculateValue(value)));
+  }, [dispatch, value]);
+
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
+
+  console.log(calculateValue(value));
 
   return (
     <Box sx={{ width: 550 }}>

@@ -82,7 +82,6 @@ export async function models(markValue) {
 export async function autoCard({ mark, model }) {
   const autos = await autoRiaApi.search({
     category_id: 1,
-
     marka_id: [model],
     model_id: [mark],
   });

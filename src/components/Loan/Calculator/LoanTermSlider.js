@@ -1,4 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useDispatch } from "react-redux";
+import * as calculatorActions from "../../../redux/calculator/calculator-action";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Slider from "@mui/material/Slider";
@@ -23,6 +25,12 @@ function calculateValue(value) {
 
 export default function LoanTermSlider() {
   const [value, setValue] = useState(0);
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(calculatorActions.getMonths(calculateValue(value)));
+  }, [dispatch, value]);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
