@@ -24,7 +24,7 @@ function calculateValue(value) {
 }
 
 export default function LoanTermSlider() {
-  const [value, setValue] = useState(0);
+  const [value, setValue] = useState(11);
 
   const dispatch = useDispatch();
 

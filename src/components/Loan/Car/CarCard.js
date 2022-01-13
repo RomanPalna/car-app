@@ -2,8 +2,8 @@ import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getMarkId, getModelsId, getCarCards } from "../../../redux/selectors";
 import * as autoOperations from "../../../redux/autosCard/auto-operations";
-import CheckboxLabels from "./CheckboxLabel";
-import noImage from "../../../images/noImage.jpg";
+
+import CarView from "./CarView";
 
 export default function CarCard() {
   const dispatch = useDispatch();
@@ -29,37 +29,7 @@ export default function CarCard() {
       )}
       <div className="car__container">
         {carCards.map((car) => (
-          <div className="car" key={car.userId}>
-            <img
-              className="car__img"
-              alt="car"
-              src={car.photoData.seoLinkF ?? noImage}
-            />
-
-            <form className="car__form">
-              <p className="car__form--year">
-                <span>{car.autoData.year} год</span> /{" "}
-                <span>{car.autoData.gearboxName}</span>
-              </p>
-              <p className="car__form--model">
-                {car.markName} {car.modelName} {car.autoData.year} {"года"}
-              </p>
-              <p className="car__form--credit">
-                <span className="car__form--credit--price">{car.UAH} грн</span>
-                <span className="car__form--credit--loan">
-                  от {car.price / 14} грн/месяц
-                </span>
-              </p>
-              <p className="car__form--protect">
-                <span className="car__form--protect--price">{car.UAH} грн</span>
-                <span className="car__form--protect--loan">
-                  от {Number(car.price) / 14} грн/месяц
-                </span>
-              </p>
-
-              <CheckboxLabels price={car.UAH} />
-            </form>
-          </div>
+          <CarView car={car} key={car.userId} />
         ))}
       </div>
     </>

@@ -5,7 +5,7 @@ const percentage = createReducer(0, {
   [calculatorAction.getPercentage]: (_, action) => action.payload,
 });
 
-const months = createReducer(1, {
+const months = createReducer(0, {
   [calculatorAction.getMonths]: (_, action) => action.payload,
 });
 

@@ -7,15 +7,15 @@ import Checkbox from "@material-ui/core/Checkbox";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import CircleOutlinedIcon from "@mui/icons-material/CircleOutlined";
 
-export default function CheckboxLabels(price) {
-  const [state, setState] = useState(false);
+export default function CheckboxLabels(price, selectedCar) {
+  const [state, setState] = useState(null);
 
   const dispatch = useDispatch();
 
   const handleChange = (event) => {
-    setState(!state);
+    setState(selectedCar);
   };
-  console.log(price);
+
   useEffect(() => {
     if (state) {
       dispatch(calculatorActions.getFirstinstallment(price));
@@ -28,7 +28,7 @@ export default function CheckboxLabels(price) {
         control={
           <Checkbox
             className="carCheckbox"
-            checked={state.checkedA}
+            checked={state === selectedCar}
             onChange={handleChange}
             name="checkedA"
             color="primary"

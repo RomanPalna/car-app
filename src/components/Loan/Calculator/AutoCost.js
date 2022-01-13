@@ -11,7 +11,12 @@ export default function AutoCost() {
   const priceForEveryMonths = useSelector(selectors.getPriceForEveryMonths);
   const dispatch = useDispatch();
 
-  console.log(calculator(price, months, percentage));
+  const isThisNaN = (value) => {
+    if (isNaN(value)) {
+      return 0;
+    }
+    return value.toFixed(0);
+  };
 
   useEffect(() => {
     dispatch(
@@ -29,7 +34,7 @@ export default function AutoCost() {
       </div>
       <div className="autoCost">
         <p className="autoCost__cost">Ежемесячный платёж</p>
-        <p className="autoCost__sum">{priceForEveryMonths.toFixed(0)} грн </p>
+        <p className="autoCost__sum">{isThisNaN(priceForEveryMonths)} грн</p>
       </div>
     </div>
   );

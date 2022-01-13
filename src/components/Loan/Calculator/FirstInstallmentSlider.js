@@ -15,7 +15,7 @@ function calculateValue(percentage) {
 }
 
 export default function FirstinstallmentSlider() {
-  const [value, setValue] = useState(-1);
+  const [value, setValue] = useState(19);
 
   const dispatch = useDispatch();
 
