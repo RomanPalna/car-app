@@ -20,7 +20,7 @@ export const getPercentage = (state) => state.calc.percentage;
 export const getMonths = (state) => state.calc.months;
 
 //state of firstinstallment  (перший внесок)
-export const getFirstinstallment = (state) => state.calc.firstinstallment.price;
+export const getFirstinstallment = (state) => state.calc.firstinstallment;
 
 //state of price for every month
 export const getPriceForEveryMonths = (state) => state.calc.priceForEveryMonths;

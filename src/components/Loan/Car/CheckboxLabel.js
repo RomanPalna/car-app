@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import * as calculatorActions from "../../../redux/calculator/calculator-action";
 import FormGroup from "@material-ui/core/FormGroup";
@@ -10,11 +10,14 @@ import CircleOutlinedIcon from "@mui/icons-material/CircleOutlined";
 export default function CheckboxLabels({ price, cheked, onHandleSelect }) {
   const dispatch = useDispatch();
 
+  if (cheked) {
+    console.log(price);
+  }
   useEffect(() => {
     if (cheked) {
       dispatch(calculatorActions.getFirstinstallment(price));
     }
-  }, [dispatch, price, cheked]);
+  }, [cheked, dispatch, price]);
 
   return (
     <FormGroup>

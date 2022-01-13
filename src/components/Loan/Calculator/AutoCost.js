@@ -11,6 +11,8 @@ export default function AutoCost() {
   const priceForEveryMonths = useSelector(selectors.getPriceForEveryMonths);
   const dispatch = useDispatch();
 
+  console.log(price, months, percentage);
+
   const isThisNaN = (value) => {
     if (isNaN(value)) {
       return 0;
