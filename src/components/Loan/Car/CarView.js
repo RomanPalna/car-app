@@ -4,7 +4,10 @@ import CheckboxLabels from "./CheckboxLabel";
 import noImage from "../../../images/noImage.jpg";
 
 export default function CarView({ car, selected, onHandleSelect }) {
-  const priceForEveryMonths = useSelector(selectors.getPriceForEveryMonths);
+  const months = useSelector(selectors.getMonths);
+  const price = car.UAH;
+
+  const sum = (price / months) * 1.17;
 
   return (
     <div className="car">
@@ -25,13 +28,13 @@ export default function CarView({ car, selected, onHandleSelect }) {
         <p className="car__form--credit">
           <span className="car__form--credit--price">{car.UAH} грн</span>
           <span className="car__form--credit--loan">
-            от {priceForEveryMonths.toFixed(0)} грн/месяц
+            от {sum.toFixed(0)} грн/месяц
           </span>
         </p>
         <p className="car__form--protect">
           <span className="car__form--protect--price">{car.UAH} грн</span>
           <span className="car__form--protect--loan">
-            от {priceForEveryMonths.toFixed(0)} грн/месяц
+            от {sum.toFixed(0)} грн/месяц
           </span>
         </p>
 

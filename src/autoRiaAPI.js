@@ -90,10 +90,7 @@ export async function autoCard({ mark, model }) {
     return autoRiaApi.getAdById(id);
   });
 
-  // const count = autos.result.search_result.count;
   const autosArr = Promise.all(carCards);
-
-  // const fetchResult = {autosArr, count };
 
   return autosArr;
 }
