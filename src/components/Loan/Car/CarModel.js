@@ -31,7 +31,6 @@ export default function CarModels() {
     dispatch(autoActions.getMarkValue(markId));
   }, [markId, dispatch]);
 
-  console.log(markId);
   const handleChange = (event) => {
     setMarkId(event.target.value);
   };
