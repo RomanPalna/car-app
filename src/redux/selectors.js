@@ -24,3 +24,6 @@ export const getFirstinstallment = (state) => state.calc.firstinstallment;
 
 //state of price for every month
 export const getPriceForEveryMonths = (state) => state.calc.priceForEveryMonths;
+
+//staten of pages
+export const getPage = (state) => state.autos.page;

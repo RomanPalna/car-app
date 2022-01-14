@@ -1,6 +1,7 @@
 import CarBrand from "./CarBrand";
 import CarModels from "./CarModel";
 import CarCard from "./CarCard";
+import PaginationControlled from "./Pagination";
 
 export default function ChoosingAuto() {
   return (
@@ -11,6 +12,7 @@ export default function ChoosingAuto() {
         <CarModels />
       </div>
       <CarCard />
+      <PaginationControlled />
     </div>
   );
 }

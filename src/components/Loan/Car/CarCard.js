@@ -1,6 +1,11 @@
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { getMarkId, getModelsId, getCarCards } from "../../../redux/selectors";
+import {
+  getMarkId,
+  getModelsId,
+  getCarCards,
+  getPage,
+} from "../../../redux/selectors";
 import * as autoOperations from "../../../redux/autosCard/auto-operations";
 
 import CarView from "./CarView";
@@ -11,15 +16,17 @@ export default function CarCard() {
 
   const model = useSelector(getModelsId);
   const mark = useSelector(getMarkId);
+  const page = useSelector(getPage);
   const carCards = useSelector(getCarCards);
 
   useEffect(() => {
     let cars = {
       model: model,
       mark: mark,
+      page: page,
     };
     dispatch(autoOperations.fetchCarCards(cars));
-  }, [dispatch, mark, model]);
+  }, [dispatch, mark, model, page]);
 
   return (
     <>

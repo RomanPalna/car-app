@@ -10,7 +10,12 @@ const autos = createReducer([], {
   [fetchCarCards.fulfilled]: (_, action) => action.payload,
 });
 
+const page = createReducer(0, {
+  [autoActions.getPage]: (_, action) => action.payload,
+});
+
 export default combineReducers({
   markId,
   autos,
+  page,
 });
