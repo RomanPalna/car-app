@@ -1,6 +1,8 @@
 import { useState } from "react";
+import { useDispatch } from "react-redux";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
+import * as infoActions from "../../redux/information/informarion-actions";
 
 export default function TrusterPeople() {
   const [values, setValues] = useState({
@@ -9,8 +11,11 @@ export default function TrusterPeople() {
     person: "",
   });
 
+  const dispatch = useDispatch();
+
   const handleChange = (prop) => (event) => {
     setValues({ ...values, [prop]: event.target.value });
+    dispatch(infoActions.getTrusted(values));
   };
 
   return (
