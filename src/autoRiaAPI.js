@@ -96,21 +96,14 @@ export async function autoCard({ mark, model, page }) {
   return autosArr;
 }
 
-// const autos = (markId, modelId) =>
-//   autoRiaApi.search({
-//     category_id: 1,
-//     s_yers: [2021],
-//     marka_id: [markId],
-//     model_id: [modelId],
-//   });
+// export async function count() {
+//   const count = await autoRiaApi.search({});
 
-// export async function autoCard() {
-//   const carCards = await autos.result.search_result.ids.map((id) => {
-//     return autoRiaApi.getAdById(id);
-//   });
+//   const countCard = count.result.search_result.count;
 
-//   return Promise.all(carCards);
+//   return countCard;
 // }
+
 // export async function carApi() {
 //   const autoRiaApi = new AutoRiaApi(
 //     "https://developers.ria.com",
