@@ -27,3 +27,9 @@ export const getPriceForEveryMonths = (state) => state.calc.priceForEveryMonths;
 
 //staten of pages
 export const getPage = (state) => state.autos.page;
+
+//information of person state
+export const getInformation = (state) => state.info.information;
+
+//information of trusted persons
+export const getTrusted = (state) => state.info.trusted;

@@ -1,3 +1,5 @@
+import { useSelector } from "react-redux";
+import * as selectors from "../../redux/selectors";
 import ButtonUnstyled, {
   buttonUnstyledClasses,
 } from "@mui/base/ButtonUnstyled";
@@ -44,5 +46,28 @@ function CustomButton(props) {
 }
 
 export default function UnstyledButtonsSimple() {
-  return <CustomButton>Отправить заявку</CustomButton>;
+  const percentage = useSelector(selectors.getPercentage);
+  const months = useSelector(selectors.getMonths);
+  const firstInstallment = useSelector(selectors.getFirstinstallment);
+  const priceForEveryMonth = useSelector(selectors.getPriceForEveryMonths);
+  const information = useSelector(selectors.getInformation);
+  const trusted = useSelector(selectors.getTrusted);
+
+  const handleSubmit = () => {
+    console.log(
+      `При оплаті ${percentage}% вартості автомобіля, беручи позику під 17% на ${months} місяців, Ваша сума кредиту буде дорівнювати ${firstInstallment} грн з щомісячним латежем ${priceForEveryMonth} грн.
+      
+      Кредит надається: ${information.name}.
+      Мобільний телефон: ${information.phone}.
+      Робочий телефон: ${information.workPhone}.
+      Адреса проживання: ${information.location}.
+
+      Поручитель: ${trusted.name}.
+      Мобільний телефон: ${trusted.phone}.
+      Приходиться кредитуємому: ${trusted.person} 
+      `
+    );
+  };
+
+  return <CustomButton onClick={handleSubmit}>Отправить заявку</CustomButton>;
 }
